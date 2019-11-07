@@ -2,4 +2,5 @@ build/
 emtest/
 build.emscripten/*.js
 build.emscripten/*.data
+build.emscripten/*.wasm
 CMakeLists.txt.user

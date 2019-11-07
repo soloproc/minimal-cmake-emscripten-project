@@ -21,4 +21,6 @@ file(GLOB_RECURSE CORE_SRC src/*.cpp)
 add_definitions("-std=c++11")
 add_executable(client ${CORE_SRC} ${CORE_HDR})
 
-set_target_properties(client PROPERTIES LINK_FLAGS "-s DEMANGLE_SUPPORT=1 --preload-file ${CMAKE_SOURCE_DIR}/assets --bind")
+# set_target_properties(client PROPERTIES LINK_FLAGS "-s DEMANGLE_SUPPORT=1 --preload-file ${CMAKE_SOURCE_DIR}/assets --bind")
+# Sovled by @webern, poor guy's PR : https://github.com/adevaykin/minimal-cmake-emscripten-project/pull/4
+set_target_properties(client PROPERTIES LINK_FLAGS "-s FULL_ES3=1 -s ERROR_ON_UNDEFINED_SYMBOLS=0 -s DEMANGLE_SUPPORT=1 --preload-file ${CMAKE_SOURCE_DIR}/assets --bind")
